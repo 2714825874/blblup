@@ -20,6 +20,18 @@ body {
     background-color: var(--background-light);
 }
 
+/* 【新增功能】网站加载进度条样式 */
+#loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%; /* 初始宽度为 0 */
+    height: 4px;
+    background-color: #ffc107; /* 醒目的黄色 */
+    z-index: 1000; /* 确保它在最前面 */
+    transition: width 0.3s ease-out, opacity 0.5s ease-out; /* 平滑过渡效果 */
+}
+
 /* 头部样式 */
 header {
     background-color: var(--primary-color);
@@ -114,6 +126,28 @@ main {
     padding: 25px;
 }
 
+/* 【新增功能】文章标签样式 */
+.post-tags {
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e9ecef; /* 浅灰色背景 */
+    color: var(--secondary-color);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.tag:hover {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+}
+
 .post-content h4 {
     color: var(--primary-color);
     margin-bottom: 5px;
@@ -138,7 +172,7 @@ main {
     text-decoration: underline;
 }
 
-/* 【新增功能】评论区占位符样式 */
+/* 评论区占位符样式 */
 .comment-section-placeholder {
     padding: 15px;
     margin-top: 20px;
@@ -165,7 +199,7 @@ footer {
     margin-top: 30px;
 }
 
-/* 【新增功能】社交媒体链接样式 */
+/* 社交媒体链接样式 */
 .social-links {
     margin-bottom: 15px;
 }
@@ -182,7 +216,7 @@ footer {
     color: var(--primary-color); /* 鼠标悬停变主题色 */
 }
 
-/* 【新增功能】返回顶部按钮样式 */
+/* 返回顶部按钮样式 */
 #backToTop {
     display: none; /* 默认隐藏，由 JavaScript 控制显示 */
     position: fixed; /* 固定位置 */
@@ -206,10 +240,37 @@ footer {
     background-color: #0056b3; /* 深一点的蓝色 */
 }
 
+/* 【新增功能】隐藏的文章样式 */
+.hidden-post {
+    display: none;
+}
+
+/* 【新增功能】加载更多按钮容器 */
+.load-more-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#loadMoreBtn {
+    background-color: #28a745; /* 绿色按钮 */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+#loadMoreBtn:hover {
+    background-color: #1e7e34;
+}
+
 /* 响应式设计：在小屏幕上调整布局 */
 @media (max-width: 768px) {
     .intro-section {
-        flex-direction: column; /* 小屏幕上头像和文字上下排列 */
+        flex-direction: column; 
         text-align: center;
     }
 
@@ -218,16 +279,21 @@ footer {
     }
 
     .post-card {
-        flex-direction: column; /* 小屏幕上图片和文字上下排列 */
+        flex-direction: column; 
     }
 
     .post-image, .post-content {
-        width: 100%; /* 占满宽度 */
+        width: 100%; 
         max-height: none;
     }
 
     .post-image {
-        height: 200px; /* 确保图片仍然可见 */
+        height: 200px; 
+    }
+    
+    .comment-section-placeholder {
+        /* 在小屏幕上取消占位符的圆角，使其与卡片底部对齐 */
+        border-radius: 0;
     }
 }
 
