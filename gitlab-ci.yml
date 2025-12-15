@@ -1,6 +1,8 @@
 # .gitlab-ci.yml 文件内容
 pages:
+  # 部署阶段
   stage: deploy
+  # 部署脚本：将所有文件移动到名为 'public' 的文件夹中
   script:
     - mkdir .public
     - cp -r * .public
@@ -9,6 +11,7 @@ pages:
   artifacts:
     paths:
       - public
+  # 仅在 'master' 或 'main' 分支更新时触发部署
   only:
-    - master # 或者 main，取决于您的主分支名称
-
+    - master 
+    # 如果您的主分支是 'main'，请将上一行的 'master' 替换为 'main'
