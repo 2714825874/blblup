@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B站 UP 主数据看板</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      background-color: #1f1f1f;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+      max-width: 300px;
+      margin-top: 20px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #ff5c8d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff3a6f;
+    }
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      display: inline-block;
+      background-color: #1c1c1c;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      width: 200px;
+    }
+    .card h3 {
+      margin: 0;
+    }
+    .card p {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>B站 UP 主数据看板</h1>
+  <input type="text" id="uid" placeholder="输入UP主UID" value="280529378">
+  <button onclick="fetchData()">查看数据</button>
+</header>
+
+<div class="container" id="data-container">
+  <!-- 数据会展示在这里 -->
+</div>
+
+<script>
+  async function fetchData() {
+    const uid = document.getElementById('uid').value;
+    const url = `https://api.bilibili.com/x/space/acc/info?mid=${uid}`;
+    
+    // 使用新的 CORS 代理服务
+    const proxyUrl = 'https://api.allorigins.win/get?url=';
+    const fullUrl = proxyUrl + encodeURIComponent(url);
+    
+    const response = await fetch(fullUrl);
+    const data = await response.json();
+    
+    if (data.status.code === 200) {
+      const info = JSON.parse(data.contents).data;
+      const container = document.getElementById('data-container');
+      container.innerHTML = `
+        <div class="card">
+          <h3>UP 主信息</h3>
+          <p><img src="${info.face}" width="80" alt="头像"></p>
+          <p>昵称: ${info.name}</p>
+          <p>签名: ${info.sign}</p>
+          <p>等级: ${info.level}</p>
+        </div>
+        <div class="card">
+          <h3>粉丝数</h3>
+          <p>${info.follower}</p>
+        </div>
+      `;
+    } else {
+      alert("未找到该UP主的相关数据！");
+    }
+  }
+</script>
+
+</body>
+</html>
