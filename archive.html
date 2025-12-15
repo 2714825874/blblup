@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章归档与分类 - [您的昵称] 的博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    
+    <script src="script.js" defer></script> 
+</head>
+<body id="top"> 
+    
+    <div id="loading-bar"></div>
+
+    <header>
+        <h1>文章归档与分类</h1>
+        <nav>
+            <a href="index.html">返回主页</a>
+            <a href="#categories">按分类查看</a> 
+        </nav>
+    </header>
+
+    <main class="archive-main">
+        
+        <section class="archive-section">
+            <h2 id="categories">📚 按文章分类查看</h2>
+            
+            <div class="category-list">
+                <a href="#cat-life" class="category-item">
+                    <i class="fas fa-heart"></i> 生活日常 (1)
+                </a>
+                <a href="#cat-code" class="category-item">
+                    <i class="fas fa-code"></i> 编程学习 (1)
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fas fa-camera"></i> 摄影随笔 (0)
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fas fa-book"></i> 读书笔记 (0)
+                </a>
+            </div>
+        </section>
+
+        <section class="archive-section">
+            <h2>📅 按日期归档查看</h2>
+            
+            <div class="archive-list-container">
+                
+                <div id="cat-life" class="archive-group">
+                    <h3>[生活日常] (2025年12月)</h3>
+                    <ul class="post-archive-list">
+                        <li>
+                            <span class="post-date">12月15日</span>
+                            <a href="article-detail.html">我第一次烘焙蛋糕的经历：混乱但美味！</a>
+                            <span class="post-tag-small">#烘焙</span>
+                            <span class="post-tag-small">#美食</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="cat-code" class="archive-group">
+                    <h3>[编程学习] (2025年12月)</h3>
+                    <ul class="post-archive-list">
+                        <li>
+                            <span class="post-date">12月10日</span>
+                            <a href="article-detail-2.html">最近在学的编程小技巧：让你的网页更灵活！</a>
+                            <span class="post-tag-small">#CSS</span>
+                            <span class="post-tag-small">#学习</span>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="您的微博链接" target="_blank" title="我的微博"><i class="fab fa-weibo"></i></a>
+            <a href="mailto:您的邮箱@example.com" target="_blank" title="联系我"><i class="fas fa-envelope"></i></a>
+            <a href="您的GitHub链接" target="_blank" title="我的GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 [您的昵称] 的个人博客 | 使用 HTML 和 CSS 构建</p>
+    </footer>
+    
+    <a href="#top" id="backToTop" title="回到顶部">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</body>
+</html>
