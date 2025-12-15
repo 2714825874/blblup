@@ -20,7 +20,7 @@ body {
     background-color: var(--background-light);
 }
 
-/* 【新增功能】网站加载进度条样式 */
+/* 【您原有的功能】网站加载进度条样式 */
 #loading-bar {
     position: fixed;
     top: 0;
@@ -31,6 +31,21 @@ body {
     z-index: 1000; /* 确保它在最前面 */
     transition: width 0.3s ease-out, opacity 0.5s ease-out; /* 平滑过渡效果 */
 }
+
+/* ==================================== */
+/* 📚 新增：阅读进度条样式 (随着页面滚动变化) */
+/* ==================================== */
+#reading-progress-bar {
+    position: fixed; /* 固定在视口顶部 */
+    top: 0;
+    left: 0;
+    width: 0%; /* 初始宽度为 0 */
+    height: 4px; /* 进度条的厚度 */
+    background-color: var(--primary-color); /* 使用主题色 */
+    z-index: 1002; /* 确保它在 #loading-bar (z-index: 1000) 上面 */
+    transition: background-color 0.3s;
+}
+
 
 /* 头部样式 */
 header {
