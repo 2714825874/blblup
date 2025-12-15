@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最近在学的编程小技巧 - [您的昵称] 的博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    
+    <script src="script.js" defer></script> 
+</head>
+<body id="top"> 
+    
+    <div id="loading-bar"></div>
+
+    <header>
+        <h1>[您的昵称] 的博客</h1>
+        <nav>
+            <a href="index.html">返回主页</a>
+            <a href="#comments">评论区</a> 
+        </nav>
+    </header>
+
+    <main class="article-detail-main">
+        <article class="full-post-content">
+            
+            <h1 class="post-title">最近在学的编程小技巧：让你的网页更灵活！</h1>
+            
+            <div class="post-meta-full">
+                <span class="meta-item"><i class="fas fa-calendar-alt"></i> 发布于：2025年12月10日</span>
+                <span class="meta-item"><i class="fas fa-user-edit"></i> 作者：[您的昵称]</span>
+            </div>
+            
+            <div class="post-tags-full">
+                <span class="tag">#编程</span>
+                <span class="tag">#学习</span>
+                <span class="tag">#CSS</span>
+            </div>
+
+            <img src="https://via.placeholder.com/1000x500/33FF57/ffffff?text=编程技巧封面图" alt="编程技巧" class="featured-image">
+            
+            <div class="article-body">
+                <p>作为一名新手，我最近在学习 HTML 和 CSS 时，发现了一些看似简单却能极大提升开发效率和页面美观度的小技巧。今天就来分享其中两个最实用的！</p>
+                
+                <h2>一、 CSS 变量 (Variables)：统一风格的关键</h2>
+                <p>CSS 变量（也叫自定义属性）可以让我们在一个地方定义颜色、字体大小等，并在整个样式表中重复使用。当需要修改主题颜色时，只需要改一个地方，超级方便！</p>
+                
+                <p>在 `styles.css` 文件顶部，我们就可以定义变量：</p>
+                
+                <pre><code>:root {
+  --main-color: #007bff; /* 主题蓝 */
+  --font-size-base: 16px; 
+}
+/* 然后在其他地方使用：*/
+header {
+  background-color: var(--main-color);
+}</code></pre>
+
+                <h2>二、 Flexbox 居中魔法：不再为对齐烦恼</h2>
+                <p>让一个元素在容器中垂直和水平居中，曾经是 CSS 新手的噩梦。但有了 **Flexbox**，这个问题变得异常简单，只需要三行 CSS 代码就能搞定！</p>
+                
+                <p>想象一个容器 `div`，里面有一个子元素需要居中：</p>
+
+                <pre><code>.container {
+  display: flex;       /* 1. 启用 Flexbox */
+  justify-content: center; /* 2. 水平居中 */
+  align-items: center;   /* 3. 垂直居中 */
+}</code></pre>
+                
+
+                <p>这个方法不仅简单，而且适用于各种尺寸的元素，是构建现代布局的必备技能。</p>
+
+                <p>希望这些小技巧对您有所帮助！编程的学习是无止境的，让我们一起加油吧！</p>
+            </div>
+            
+            <hr>
+
+            <section id="comments" class="comment-section">
+                <h3>💬 留言与互动</h3>
+                <div class="comment-area-placeholder">
+                    <p>感谢您的阅读！这里是文章专用的评论区。</p>
+                    <p>由于我们目前只使用 HTML/CSS/JS，真正的评论功能（需要服务器和数据库）尚未启用。</p>
+                    <p class="small-text">如果您有更好的编程小技巧，欢迎在下方留言分享！</p>
+                    <button class="mock-comment-button">模拟发表评论</button>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="您的微博链接" target="_blank" title="我的微博"><i class="fab fa-weibo"></i></a>
+            <a href="mailto:您的邮箱@example.com" target="_blank" title="联系我"><i class="fas fa-envelope"></i></a>
+            <a href="您的GitHub链接" target="_blank" title="我的GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 [您的昵称] 的个人博客 | 使用 HTML 和 CSS 构建</p>
+    </footer>
+    
+    <a href="#top" id="backToTop" title="回到顶部">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</body>
+</html>
