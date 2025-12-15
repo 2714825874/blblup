@@ -297,3 +297,130 @@ footer {
     }
 }
 
+/* ==================================== */
+/* 新增：文章详情页样式 (article-detail.html) */
+/* ==================================== */
+
+.article-detail-main {
+    padding: 20px;
+    max-width: 850px; /* 文章内容区域略窄，更适合阅读 */
+    margin: 0 auto;
+}
+
+.full-post-content {
+    background-color: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.post-title {
+    color: var(--text-dark);
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* 完整文章页的元信息 */
+.post-meta-full {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.meta-item {
+    margin: 0 10px;
+}
+
+/* 完整文章页的标签 */
+.post-tags-full {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 文章正文 */
+.article-body h2 {
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 5px;
+}
+
+.article-body p {
+    margin-bottom: 15px;
+    text-indent: 2em; /* 首行缩进 */
+    font-size: 1.05em;
+}
+
+.article-image-middle {
+    display: block;
+    max-width: 90%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 引用样式 */
+blockquote {
+    background: var(--background-light);
+    border-left: 5px solid var(--primary-color);
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: var(--text-dark);
+}
+
+blockquote i {
+    color: var(--primary-color);
+    margin: 0 5px;
+}
+
+/* 评论区样式 (文章详情页版本) */
+.comment-section {
+    padding-top: 20px;
+}
+
+.comment-area-placeholder {
+    padding: 30px;
+    background-color: #f0f3f6;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.mock-comment-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.mock-comment-button:hover {
+    background-color: #0056b3;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .full-post-content {
+        padding: 20px;
+    }
+    .post-title {
+        font-size: 1.8em;
+    }
+}
