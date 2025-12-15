@@ -5,6 +5,13 @@
     --background-light: #f8f9fa; /* 浅背景色 */
     --text-dark: #343a40; /* 深文本色 */
     --border-light: #dee2e6;
+
+    /* 深色模式全局变量 */
+    --dark-bg: #1e1e1e;
+    --dark-text: #cccccc;
+    --dark-card: #2a2a2a;
+    --dark-border: #3c3c3c;
+    --dark-link: #72a9e2;
 }
 
 * {
@@ -18,6 +25,7 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--background-light);
+    transition: background-color 0.4s, color 0.4s; /* 🌙 平滑过渡 */
 }
 
 /* 【您原有的功能】网站加载进度条样式 */
@@ -42,10 +50,9 @@ body {
     width: 0%; /* 初始宽度为 0 */
     height: 4px; /* 进度条的厚度 */
     background-color: var(--primary-color); /* 使用主题色 */
-    z-index: 1002; /* 确保它在 #loading-bar (z-index: 1000) 上面 */
+    z-index: 1002; /* 确保它在所有内容之上 */
     transition: background-color 0.3s;
 }
-
 
 /* 头部样式 */
 header {
@@ -564,4 +571,97 @@ blockquote i {
     .post-date {
         margin-bottom: 5px;
     }
+}
+
+
+/* ==================================== */
+/* 🌙 1. 深色/夜间模式 (Dark Mode) 样式 */
+/* ==================================== */
+
+body.dark-mode {
+    color: var(--dark-text);
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode header {
+    background-color: var(--dark-card); /* 头部背景 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid var(--dark-border);
+}
+
+body.dark-mode header h1,
+body.dark-mode nav a {
+    color: var(--dark-text);
+}
+
+/* 容器和卡片样式 */
+body.dark-mode .intro-section,
+body.dark-mode .post-card,
+body.dark-mode .archive-section,
+body.dark-mode .full-post-content {
+    background-color: var(--dark-card);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+    border: 1px solid var(--dark-border);
+}
+
+/* 进度条、链接和强调色 */
+body.dark-mode #reading-progress-bar {
+    background-color: #4CAF50; /* 深色模式使用绿色 */
+}
+
+body.dark-mode a:not(.read-more):not(.social-links a) {
+    color: var(--dark-link);
+}
+
+/* 标签和元信息 */
+body.dark-mode .tag {
+    background-color: #383838;
+    color: var(--dark-text);
+}
+
+body.dark-mode .post-meta,
+body.dark-mode .small-text,
+body.dark-mode .post-meta-full {
+    color: #999999;
+}
+
+/* 底部和按钮 */
+body.dark-mode footer {
+    background-color: #000000;
+}
+
+body.dark-mode #backToTop,
+body.dark-mode #loadMoreBtn {
+    background-color: var(--dark-link);
+}
+
+/* 引用块 */
+body.dark-mode blockquote {
+    background: #252525;
+    border-left: 5px solid var(--dark-link);
+    color: var(--dark-text);
+}
+body.dark-mode blockquote i {
+    color: var(--dark-link);
+}
+
+/* 🌙 切换按钮样式 (固定在右上角) */
+#theme-toggle {
+    cursor: pointer;
+    position: fixed; 
+    top: 20px; 
+    right: 20px;
+    background: none;
+    border: 1px solid currentColor;
+    color: var(--text-dark); /* 亮色模式下按钮颜色 */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    z-index: 2000; /* 确保它在所有元素之上 */
+    transition: color 0.3s, background-color 0.3s;
+}
+
+body.dark-mode #theme-toggle {
+    color: var(--dark-text); /* 深色模式下按钮颜色 */
 }
