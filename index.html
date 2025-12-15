@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
 </head>
 <body id="top"> 
+    
+    <div id="loading-bar"></div>
 
     <header>
         <h1>[您的昵称] 的博客</h1>
@@ -35,6 +37,12 @@
             <article class="post-card">
                 <img src="https://via.placeholder.com/600x400/FF5733/ffffff?text=图片标题1" alt="文章图片1" class="post-image">
                 <div class="post-content">
+                    <div class="post-tags">
+                        <span class="tag">#生活</span>
+                        <span class="tag">#烘焙</span>
+                        <span class="tag">#美食</span>
+                    </div>
+                    
                     <h4>我第一次烘焙蛋糕的经历</h4>
                     <p class="post-meta">发布于：2025年12月15日</p>
                     <p>这是一个关于我第一次尝试制作戚风蛋糕的故事。虽然过程有点手忙脚乱，但成品非常美味！</p>
@@ -47,9 +55,15 @@
                 </div>
             </article>
 
-            <article class="post-card">
-                 <img src="https://via.placeholder.com/600x400/33FF57/ffffff?text=图片标题2" alt="文章图片2" class="post-image">
+            <article class="post-card hidden-post"> 
+                <img src="https://via.placeholder.com/600x400/33FF57/ffffff?text=图片标题2" alt="文章图片2" class="post-image">
                 <div class="post-content">
+                     <div class="post-tags">
+                        <span class="tag">#编程</span>
+                        <span class="tag">#学习</span>
+                        <span class="tag">#CSS</span>
+                    </div>
+
                     <h4>最近在学的编程小技巧</h4>
                     <p class="post-meta">发布于：2025年12月10日</p>
                     <p>我总结了几个对新手很有用的HTML和CSS技巧，希望能帮助到跟我一样在学习的朋友！</p>
@@ -61,8 +75,12 @@
                     </div>
                 </div>
             </article>
-
-        </section>
+            
+            </section>
+        
+        <div class="load-more-container">
+            <button id="loadMoreBtn">加载更多文章 (1)</button>
+        </div>
     </main>
 
     <footer>
