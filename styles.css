@@ -424,3 +424,129 @@ blockquote i {
         font-size: 1.8em;
     }
 }
+/* ==================================== */
+/* 新增：文章归档页样式 (archive.html) */
+/* ==================================== */
+
+.archive-main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.archive-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.archive-section h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* 分类按钮样式 */
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.category-item {
+    display: inline-block;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.category-item i {
+    margin-right: 5px;
+}
+
+/* 按日期归档组样式 */
+.archive-group {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 3px solid var(--border-light); /* 时间轴效果 */
+}
+
+.archive-group h3 {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+.post-archive-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-archive-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #f0f0f0;
+}
+
+.post-archive-list li:last-child {
+    border-bottom: none;
+}
+
+.post-date {
+    font-weight: 700;
+    color: var(--secondary-color);
+    width: 100px; /* 固定日期宽度 */
+    flex-shrink: 0;
+}
+
+.post-archive-list li a {
+    flex-grow: 1;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.post-archive-list li a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.post-tag-small {
+    font-size: 0.75em;
+    background-color: #eee;
+    color: var(--secondary-color);
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+    .archive-main {
+        padding: 10px;
+    }
+    .post-archive-list li {
+        flex-wrap: wrap; /* 小屏幕上允许换行 */
+    }
+    .post-date {
+        margin-bottom: 5px;
+    }
+}
