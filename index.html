@@ -1,110 +1,97 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B站 UP 主数据看板</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B站 UP 主查询（按用户名）</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: white;
       margin: 0;
-      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+      background: #0f0f0f;
+      color: #fff;
+      text-align: center;
     }
     header {
       padding: 20px;
-      background-color: #1f1f1f;
-      text-align: center;
+      background: #181818;
     }
-    header h1 {
-      margin: 0;
-    }
-    input[type="text"] {
-      padding: 10px;
-      font-size: 16px;
+    input {
       width: 80%;
-      max-width: 300px;
-      margin-top: 20px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
+      max-width: 320px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 12px;
     }
     button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      background-color: #ff5c8d;
-      color: white;
+      margin-top: 12px;
+      padding: 12px 24px;
+      font-size: 16px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      background: #ff5c8d;
+      color: #fff;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #ff3a6f;
-    }
-    .container {
-      padding: 20px;
-      text-align: center;
-    }
     .card {
-      display: inline-block;
-      background-color: #1c1c1c;
-      padding: 20px;
-      margin: 10px;
-      border-radius: 10px;
-      width: 200px;
+      background: #1e1e1e;
+      margin: 16px auto;
+      padding: 16px;
+      border-radius: 12px;
+      max-width: 360px;
+      text-align: left;
     }
-    .card h3 {
-      margin: 0;
-    }
-    .card p {
-      font-size: 20px;
+    img {
+      border-radius: 50%;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>B站 UP 主数据看板</h1>
-  <input type="text" id="uid" placeholder="输入UP主UID" value="280529378">
-  <button onclick="fetchData()">查看数据</button>
+  <h2>B站 UP 主查询</h2>
+  <p>请输入 UP 主用户名</p>
+  <input id="keyword" value="铃奈咲泠" placeholder="例如：铃奈咲泠" />
+  <br />
+  <button onclick="search()">搜索</button>
 </header>
 
-<div class="container" id="data-container">
-  <!-- 数据会展示在这里 -->
-</div>
+<div id="result"></div>
 
 <script>
-  async function fetchData() {
-    const uid = document.getElementById('uid').value;
-    const url = `https://api.bilibili.com/x/space/acc/info?mid=${uid}`;
-    
-    // 使用新的 CORS 代理服务
-    const proxyUrl = 'https://api.allorigins.win/get?url=';
-    const fullUrl = proxyUrl + encodeURIComponent(url);
-    
-    const response = await fetch(fullUrl);
-    const data = await response.json();
-    
-    if (data.status.code === 200) {
-      const info = JSON.parse(data.contents).data;
-      const container = document.getElementById('data-container');
-      container.innerHTML = `
-        <div class="card">
-          <h3>UP 主信息</h3>
-          <p><img src="${info.face}" width="80" alt="头像"></p>
-          <p>昵称: ${info.name}</p>
-          <p>签名: ${info.sign}</p>
-          <p>等级: ${info.level}</p>
-        </div>
-        <div class="card">
-          <h3>粉丝数</h3>
-          <p>${info.follower}</p>
-        </div>
-      `;
-    } else {
-      alert("未找到该UP主的相关数据！");
-    }
+async function search() {
+  const keyword = document.getElementById("keyword").value.trim();
+  if (!keyword) return alert("请输入用户名");
+
+  const url =
+    "https://api.bilibili.com/x/web-interface/search/type" +
+    "?search_type=bili_user&keyword=" +
+    encodeURIComponent(keyword);
+
+  const res = await fetch(url);
+  const json = await res.json();
+
+  if (json.code !== 0 || !json.data.result || json.data.result.length === 0) {
+    document.getElementById("result").innerHTML =
+      "<p>没有搜索到 UP 主</p>";
+    return;
   }
+
+  const user = json.data.result[0];
+
+  document.getElementById("result").innerHTML = `
+    <div class="card">
+      <img src="${user.upic}" width="80" />
+      <h3>${user.uname}</h3>
+      <p>UID：${user.mid}</p>
+      <p>粉丝：${user.fans}</p>
+      <p>视频数：${user.videos}</p>
+      <p>简介：${user.usign || "无"}</p>
+    </div>
+  `;
+}
 </script>
 
 </body>
