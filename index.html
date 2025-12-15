@@ -1,69 +1,63 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>铃奈咲泠 · B站UP主数据站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客 - 欢迎！</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-<style>
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  background: #0f0f14;
-  color: #ffffff;
-}
+    <header>
+        <h1>[您的昵称] 的博客</h1>
+        <nav>
+            <a href="#about">关于我</a>
+            <a href="#posts">所有文章</a>
+            </nav>
+    </header>
 
-header {
-  padding: 24px;
-  background: linear-gradient(135deg, #ff6a88, #ff99ac);
-  text-align: center;
-}
+    <main>
 
-header h1 {
-  margin: 0;
-  font-size: 24px;
-}
+        <section id="about" class="intro-section">
+            <div class="intro-text">
+                <h2>👋 欢迎来到我的小世界！</h2>
+                <p>我是 [您的名字/昵称]，一个热衷于 [您的兴趣/爱好] 的新手博主。在这里，我分享我的生活点滴、学习笔记和一些有趣的照片。希望您能喜欢！</p>
+                <p>🚀 让我们一起探索美好生活！</p>
+            </div>
+            <img src="https://via.placeholder.com/150/007bff/ffffff?text=您的头像" alt="我的头像" class="profile-img">
+        </section>
 
-header p {
-  margin-top: 8px;
-  opacity: 0.9;
-}
+        <section id="posts" class="posts-container">
+            <h3>✨ 最新分享</h3>
 
-.container {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 16px;
-}
+            <article class="post-card">
+                <img src="https://via.placeholder.com/600x400/FF5733/ffffff?text=图片标题1" alt="文章图片1" class="post-image">
+                <div class="post-content">
+                    <h4>我第一次烘焙蛋糕的经历</h4>
+                    <p class="post-meta">发布于：2025年12月15日</p>
+                    <p>这是一个关于我第一次尝试制作戚风蛋糕的故事。虽然过程有点手忙脚乱，但成品非常美味！</p>
+                    <a href="#" class="read-more">阅读更多 &gt;</a> 
+                </div>
+            </article>
 
-.profile {
-  background: #1c1c22;
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-}
+            <article class="post-card">
+                <img src="https://via.placeholder.com/600x400/33FF57/ffffff?text=图片标题2" alt="文章图片2" class="post-image">
+                <div class="post-content">
+                    <h4>最近在学的编程小技巧</h4>
+                    <p class="post-meta">发布于：2025年12月10日</p>
+                    <p>我总结了几个对新手很有用的HTML和CSS技巧，希望能帮助到跟我一样在学习的朋友！</p>
+                    <a href="#" class="read-more">阅读更多 &gt;</a> 
+                </div>
+            </article>
 
-.profile img {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  border: 3px solid #ff6a88;
-}
+            </section>
+    </main>
 
-.profile h2 {
-  margin: 12px 0 4px;
-}
+    <footer>
+        <p>&copy; 2025 [您的昵称] 的个人博客 | 使用 HTML 和 CSS 构建</p>
+    </footer>
 
-.profile span {
-  font-size: 14px;
-  color: #aaa;
-}
+</body>
+</html>
 
-.stats {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 16px;
-}
-
-.stat {
-  background: #2a2a
