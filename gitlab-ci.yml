@@ -1,0 +1,14 @@
+# .gitlab-ci.yml 文件内容
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r * .public
+    - rm -rf public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master # 或者 main，取决于您的主分支名称
+
