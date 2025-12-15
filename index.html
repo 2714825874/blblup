@@ -12,6 +12,8 @@
     
     <div id="loading-bar"></div>
 
+    <div id="reading-progress-bar"></div>
+
     <header>
         <h1>[您的昵称] 的博客</h1>
         <nav>
@@ -99,7 +101,24 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <script>
+        document.addEventListener('scroll', () => {
+            const progressBar = document.getElementById('reading-progress-bar');
+            
+            // 文档的总高度（即可以滚动的总距离）
+            const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            
+            // 当前滚动位置
+            const scrollPosition = document.documentElement.scrollTop;
+            
+            // 计算百分比
+            const progressPercentage = (scrollPosition / totalHeight) * 100;
+
+            // 应用到进度条的宽度
+            progressBar.style.width = progressPercentage + '%';
+        });
+    </script>
+    
     <script src="script.js"></script> 
 </body>
 </html>
-
